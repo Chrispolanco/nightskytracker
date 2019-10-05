@@ -1,5 +1,4 @@
 class CreatePosts < ActiveRecord::Migration
-  
   def change
     create_table :posts do |t|
       t.string  :title 
@@ -8,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.float   :latitude 
       t.float   :longitude
       t.integer :user_id 
+      t.date    :date
     end 
   end
 end
