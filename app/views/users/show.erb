@@ -1,0 +1,25 @@
+<h1>Hello, <%= @user.name %> </h1> 
+<br> 
+<% @user.post.each do |details| %> 
+    <ul> 
+        <h4><%= detail.title %> </h4>
+        <br>  
+        <h5> Date Seen </h5> 
+        <%= detail.date %>
+        <br> 
+        <h5> Description </h5> 
+        <br> 
+        <%= detail.description %>
+        <h5> Latitude </h5> 
+        <br> 
+        <b><%= detail.latitude %></b> 
+        <br> 
+        <h5> Longitude </h5> 
+        <br> 
+        <b><%= detail.longitude %></b> 
+        <h5> Link to Picture </h5> 
+        <br> 
+        <b><%= detail.link %></b> 
+    </ul> 
+<% end %> 
+
