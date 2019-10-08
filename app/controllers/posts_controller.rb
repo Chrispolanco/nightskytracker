@@ -9,4 +9,9 @@ class PostsController < ApplicationController
         erb :"/posts/new"
     end
 
+    post "/posts" do 
+        @post = Post.create(params)
+        redirect to "/posts"
+    end 
+
 end 
