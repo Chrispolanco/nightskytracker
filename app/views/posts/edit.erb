@@ -8,18 +8,19 @@
     <input type="date" name="date" value="<%=@post.date%>" 
     <br> 
     <label>Description</label>
-    <textarea name="description" value="<%=@post.description%>" 
+    <textarea name="description" value="<%=@post.description%>"></textarea>
     <br>  
     <label>Latitude</label>
-    <input type="number" name="latitude" value="<%=@post.latitude%>"
+    <input type="number" name="latitude" min="-90" max="90" value="<%=@post.latitude%>" />
     <br> 
     <label>Longitude</label>
-    <input type="number" name="longitude" value="<%=@post.longitude%>"
+    <input type="number" name="longitude" min="-180" max="180" value="<%=@post.longitude%>" /> 
     <br> 
     <label>Link to Picture </label>
-    <input type="text" name="link" value="<%=@post.link%>" 
+    <input type="url" name="link" value="<%=@post.link%>" 
     <br> 
     <h6> Edit Post </h6> 
     <br> 
-    <input type="submit" value="Update" 
+    <input type="submit" value="Update" />< 
 </form> 
+
