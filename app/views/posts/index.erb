@@ -1,27 +1,25 @@
-<% @post.each do |detail| %> 
-    <ul> 
-        <h4><%= detail.title %> </h4>
-        <br>  
-        <h5> Date Seen </h5> 
-        <%= detail.date %>
-        <br> 
-        <h5> Description </h5> 
-        <br> 
-        <%= detail.description %>
-        <h5> Latitude </h5> 
-        <br> 
-        <b><%= detail.latitude %></b> 
-        <br> 
-        <h5> Longitude </h5> 
-        <br> 
-        <b><%= detail.longitude %></b> 
-        <h5> Link to Picture </h5> 
-        <br> 
-        <b><%= detail.link %></b> 
-        <br> 
-        <h6> Edit Post </h6> 
-        <br> 
-        <a href ="post/<%=post.id%>/edit"></a> 
-    </ul> 
+<% @posts.each do |detail| %> 
+    <h4><%= detail.title %> </h4>
+    <br>  
+    <h5> Date Seen </h5> 
+    <%= detail.date %>
+    <br> 
+    <h5> Description </h5> 
+    <br> 
+    <%= detail.description %>
+    <h5> Latitude </h5> 
+    <br> 
+    <b><%= detail.latitude %></b> 
+    <br> 
+    <h5> Longitude </h5> 
+    <br> 
+    <b><%= detail.longitude %></b> 
+    <h5> Link to Picture </h5> 
+    <br> 
+    <b><%= detail.link %></b> 
+    <br> 
+    <h6> Edit Post </h6> 
+    <br> 
+    <a href ="post/<%=post.id%>/edit"></a> 
 <% end %> 
 

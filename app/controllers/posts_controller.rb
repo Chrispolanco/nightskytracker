@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
     post "/posts" do 
         @post = Post.create(params)
-        redirect to "/posts"
     end 
 
 end 
