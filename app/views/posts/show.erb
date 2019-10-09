@@ -1,15 +1,15 @@
-<%= @post.title %>
+
+    <h1><%= @post.title %> </h1> 
+    <h4>Date Seen: <%= @post.date %> </h4>
     <br> 
-    <h1>Title</h1><%= @post.title %> 
-    <br>  
-    <p>Date Seen: <%= @post.date %> </p>
-    <br> 
-    <p>Description: <%= @post.description %> </p>
+    <h4>Description:</h4>
+    <br>
+    <p><%= @post.description %> </p>
     <br>   
-    <p>Latitude:</p> <%= @post.latitude %> </p> 
+    <h4>Latitude: <%= @post.latitude %> </h4> 
     <br> 
-    <p>Longitude:</p> <% @post.longitude %> </p> 
+    <h4>Longitude: <%= @post.longitude %> </h4> 
     <br> 
-    <label>Link to Picture: <%= post.link %>  </label>
-    <br> 
+    <a href = "<%= @post.link %>"> Link to Picture </a>
+    
 

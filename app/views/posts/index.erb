@@ -1,24 +1,14 @@
 <% @posts.each do |detail| %> 
     <h2><%= detail.title %> </h2>
-    <h3> Date Seen </h3> 
-    <%= detail.date %>
-    <br><br>
-    <h4> Description </h4> 
+    <h4> Date Seen: <%= detail.date %></h4> 
     <br>
-    <%= detail.description %>
-    <br> <br>
-    <h4> Latitude </h4> 
-    <br> 
-    <b><%= detail.latitude %></b> 
-    <br> 
-    <h4> Longitude </h4> 
-    <br> 
-    <b><%= detail.longitude %></b> 
-    <br><br>
-    <b><h4> Link to Picture </h4><b>
-    <b><%= detail.link %></b> 
-    <br><br>
+    <h4> Description: </h4> 
+    <p> <%= detail.description %> </p> 
+    <br>
+    <h4>Latitude: <%= detail.latitude %> </h4>  
+    <h4> Longitude: <%= detail.longitude %> </h4> 
+    <h4> Link to Picture: <%= detail.link %> </h4>
+    <br>
     <h5> Edit Post </h5> 
-    <br> 
 <% end %> 
 
