@@ -33,13 +33,13 @@ class PostsController < ApplicationController
         @post.longitude = params[:longitude]
         @post.date = params[:date] 
         @post.save 
-        redirect to "recipes/#{@recipe.id}"
+        redirect "/posts/#{@post.id}"
     end
     
-    delete "/posts/:id" do 
+    delete "/posts/:id/delete" do 
         @post = Post.find_by_id(params[:id])
         @post.delete 
-        redirect to "/posts"
+        redirect "/posts"
     end  
 
 
