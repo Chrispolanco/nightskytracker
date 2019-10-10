@@ -1,5 +1,8 @@
-<h1>Sign Up to Start Tracking</h1> 
-<form action="/users/signup" method="POST"> 
+<h1>Sign Up to Start Tracking Observations</h1> 
+
+<%="Must Include email and password" if @user && @user.errors.any? %> 
+
+<form action="/users" method="POST"> 
     <label for="name">Name</label> 
     <input type="text" id="name" name="name"/> 
     <br><br>
@@ -9,4 +12,5 @@
     <label for="username">Create Password</label>
     <input type="password" id="password" name="password"/> 
     <br><br>
-    <input type="submit" value="Submit"> 
+    <input type="submit" value="Sign Up"> 
+</form>
