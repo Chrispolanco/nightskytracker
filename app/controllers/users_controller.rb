@@ -5,9 +5,9 @@ class UsersController < ApplicationController
     end 
 
     post "/users" do 
-        user = User.new(:name => params[:name],:username => params[:username], :password =>params[:password]) 
+        user = User.new(:name => params[:name], :username => params[:username], :password =>params[:password]) 
         if user.save 
-            redirect "users/login"
+            redirect "/users/login"
         else 
             erb :"/users/new"
         end

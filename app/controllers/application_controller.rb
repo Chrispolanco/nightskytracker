@@ -15,15 +15,24 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def logged_in?
-      !!session[:username]
+      !!current_user
     end  
 
-    def login(username) 
-      session[:username] = params[:username]
+    def login(username, password)
+      user = user.find_by(:username =>username)
+      if user && user.authenticate(password)
+        session[:username] = user.username
+      else 
+        redirect "/sessions/login"
+      end 
+    end 
+
+    def logout! 
+      session.clear
     end 
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find_by(:username => session[:username]) if session[:email]
     end 
 
   end 

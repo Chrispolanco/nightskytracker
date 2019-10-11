@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     end 
 
     get "/posts/new" do
-        if !session[:email]
+        if !logged_in? 
             redirect "sessions/login" 
         else 
             erb :"/posts/edit" 
@@ -20,16 +20,19 @@ class PostsController < ApplicationController
     end 
 
     get "/posts/:id" do 
-        @post = Post.find_by_id(params[:id])
+        @post = Post.find_by_id(params[:username])
         erb :"/posts/show" 
     end 
 
     get "/posts/:id/edit" do 
-        if !session[:email]
-            redirect "sessions/login" 
-        else 
-            @post = Post.find_by_id(params[:id]) 
-            erb :"/posts/edit"
+        if !logged_in? 
+            redirect "/sessions/login" 
+        else  
+            if post = current_user.find_by(params[:id]) 
+                erb :"/posts/edit"
+            else 
+                redirect "/posts"
+            end 
         end 
     end 
 
