@@ -6,11 +6,16 @@ class PostsController < ApplicationController
     end 
 
     get "/posts/new" do
-        erb :"/posts/new"
+        if !session[:email]
+            redirect "sessions/login" 
+        else 
+            erb :"/posts/edit" 
+        end  
     end
 
     post "/posts" do 
-        @post = Post.create(params)
+        user = User.find_by_id(params[:user_id]) 
+        @post = user.post.build(params)
         redirect to "/posts/#{@post.id}"
     end 
 
@@ -20,8 +25,12 @@ class PostsController < ApplicationController
     end 
 
     get "/posts/:id/edit" do 
-        @post = Post.find_by_id(params[:id]) 
-        erb :"/posts/edit" 
+        if !session[:email]
+            redirect "sessions/login" 
+        else 
+            @post = Post.find_by_id(params[:id]) 
+            erb :"/posts/edit"
+        end 
     end 
 
     patch "/posts/:id" do 
