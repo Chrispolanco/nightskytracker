@@ -15,12 +15,15 @@ class PostsController < ApplicationController
 
     post "/posts" do 
         user = User.find_by_id(params[:user_id]) 
-        @post = user.post.build(params)
-        redirect to "/posts/#{@post.id}"
+        @post = user.posts.build(params)
+        if @post.save 
+            redirect to "/posts/#{@post.id}"
+        else 
+            redirect "/posts/new"
     end 
 
     get "/posts/:id" do 
-        @post = Post.find_by_id(params[:username])
+        @post = Post.find_by_id(params[:id])
         erb :"/posts/show" 
     end 
 
