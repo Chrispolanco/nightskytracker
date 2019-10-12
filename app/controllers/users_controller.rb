@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     post "/users" do 
         user = User.new(:name => params[:name], :username => params[:username], :password =>params[:password]) 
         if user.save 
-            session[:username] = user.username
+            session[:id] = user.id
                 redirect "/posts"
         else 
             erb :"/users/new"

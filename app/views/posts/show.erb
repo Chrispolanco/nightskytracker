@@ -12,6 +12,8 @@
     <br> 
     <a href = "http://www.<%= @post.link %>" target="_blank"> Link to Picture </a>
     
+    <a href="/posts/<%= @post.id %>/edit">Edit</a> 
+
     <form action="/posts/<%= @post.id %>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="delete">

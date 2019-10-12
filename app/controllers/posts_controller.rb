@@ -9,7 +9,7 @@ class PostsController < ApplicationController
         if !logged_in? 
             redirect "sessions/login" 
         else 
-            erb :"/posts/edit" 
+            erb :"/posts/new" 
         end  
     end
 
@@ -20,18 +20,24 @@ class PostsController < ApplicationController
             redirect to "/posts/#{@post.id}"
         else 
             redirect "/posts/new"
+        end 
     end 
 
     get "/posts/:id" do 
         @post = Post.find_by_id(params[:id])
-        erb :"/posts/show" 
+        if @post 
+            erb :"/posts/show"
+        else 
+            redirect "/posts"
+        end  
     end 
 
     get "/posts/:id/edit" do 
         if !logged_in? 
             redirect "/sessions/login" 
         else  
-            if post = current_user.find_by(params[:id]) 
+            @post = Post.find_by_id(params[:id]) 
+            if @post.user_id == current_user.id
                 erb :"/posts/edit"
             else 
                 redirect "/posts"
@@ -40,6 +46,7 @@ class PostsController < ApplicationController
     end 
 
     patch "/posts/:id" do 
+        
         @post = Post.find_by_id(params[:id]) 
         @post.title = params[:title]
         @post.link = params[:link]
@@ -47,8 +54,12 @@ class PostsController < ApplicationController
         @post.latitude = params[:latitude]
         @post.longitude = params[:longitude]
         @post.date = params[:date] 
-        @post.save 
-        redirect "/posts/#{@post.id}"
+
+        if @post.save 
+            redirect to "/posts/#{@post.id}"
+        else 
+            redirect "/posts/new"
+        end 
     end
     
     delete "/posts/:id/delete" do 
