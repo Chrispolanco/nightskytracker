@@ -17,6 +17,8 @@
     <div class="wrapper">
       <ul> 
         <% if logged_in? %> 
+          <h2><li> Hello <%= current_user.name %> </li></h2> 
+          <br> 
           <li><a href="/sessions/logout">Logout</a></li> 
           <li><a href="/posts/new">Create a Post</a></li> 
           <li><a href="/posts">Posts</a></li> 

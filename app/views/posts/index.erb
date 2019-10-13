@@ -4,7 +4,7 @@
 <% @posts.each do |detail| %> 
     <h2><a href ="/posts/<%=detail.id%>"><%= detail.title %></a></h2>
     <% @user = User.find_by(:id => detail.user_id) %>
-    <%= @user.name %>  
+    <h4> Written By "<%= @user.name %>" <h4> 
     
 <% end %> 
 

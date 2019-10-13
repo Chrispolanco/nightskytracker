@@ -5,13 +5,13 @@ class PostsController < ApplicationController
             @posts = Post.all 
             erb :"/posts/index"
         else 
-            redirect "/"
+            redirect "/sessions/login"
         end
     end 
 
     get "/posts/new" do
         if !logged_in? 
-            redirect "sessions/login" 
+            redirect "/sessions/login" 
         else 
             erb :"/posts/new" 
         end  
@@ -65,10 +65,14 @@ class PostsController < ApplicationController
         end 
     end
     
-    delete "/posts/:id" do 
+    delete "/posts/:id/delete" do 
         @post = Post.find_by_id(params[:id])
-        @post.delete 
-        redirect "/posts"
+        if @post.user_id == current_user.id
+            @post.delete 
+            redirect "/posts"
+        else 
+            redirect "/posts"
+        end 
     end  
 
 
