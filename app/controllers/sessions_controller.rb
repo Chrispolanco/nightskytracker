@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         redirect "/posts"
     end 
 
-    get "/logout" do 
+    get "/sessions/logout" do 
         logout! 
         redirect "/sessions/login" 
     end 

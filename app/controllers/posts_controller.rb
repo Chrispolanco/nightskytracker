@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
 
     get "/posts" do 
-        @posts = Post.all 
-        erb :"/posts/index"
+        if logged_in?
+            @posts = Post.all 
+            erb :"/posts/index"
+        else 
+            redirect "/"
+        end
     end 
 
     get "/posts/new" do
@@ -14,8 +18,7 @@ class PostsController < ApplicationController
     end
 
     post "/posts" do 
-        user = User.find_by_id(params[:user_id]) 
-        @post = user.posts.build(params)
+        @post = current_user.post.build(params)
         if @post.save 
             redirect to "/posts/#{@post.id}"
         else 
@@ -46,7 +49,7 @@ class PostsController < ApplicationController
     end 
 
     patch "/posts/:id" do 
-        
+
         @post = Post.find_by_id(params[:id]) 
         @post.title = params[:title]
         @post.link = params[:link]
@@ -62,7 +65,7 @@ class PostsController < ApplicationController
         end 
     end
     
-    delete "/posts/:id/delete" do 
+    delete "/posts/:id" do 
         @post = Post.find_by_id(params[:id])
         @post.delete 
         redirect "/posts"
