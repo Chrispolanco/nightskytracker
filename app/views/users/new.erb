@@ -1,8 +1,10 @@
 <h1>Sign Up to Start Tracking Observations</h1> 
 
-<%="Must Include Name, Username, and Password" if @user && @user.errors.any? %> 
+<%="Must Include Name, Username, and Password Must Be Atleast 3 Characters Long" if @user && @user.errors.any? %> 
+
 
 <form action="/users" method="POST"> 
+    <br> 
     <label for="name">Name</label> 
     <input type="text" id="name" name="name"/> 
     <br><br>
