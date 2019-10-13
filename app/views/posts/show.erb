@@ -11,9 +11,9 @@
     <h4>Longitude: <%= @post.longitude %> </h4> 
     <br> 
     <a href = "http://www.<%= @post.link %>" target="_blank"> Link to Picture </a>
-    
+    <br> 
     <a href="/posts/<%= @post.id %>/edit">Edit</a> 
-
+    <br>
     <form action="/posts/<%= @post.id %>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete" />
         <input type="submit" value="Delete">

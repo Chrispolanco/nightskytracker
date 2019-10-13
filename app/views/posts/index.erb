@@ -1,8 +1,10 @@
-<h1>Your Posts</h1> 
+<h1>Posts</h1> 
 <br> 
 <br> 
 <% @posts.each do |detail| %> 
-    <h4><a href ="/posts/<%=detail.id%>"><%= detail.title %></a></h4>
+    <h2><a href ="/posts/<%=detail.id%>"><%= detail.title %></a></h2>
+    <% @user = User.find_by(:id => detail.user_id) %>
+    <%= @user.name %>  
     
 <% end %> 
 
