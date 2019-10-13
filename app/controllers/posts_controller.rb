@@ -59,9 +59,9 @@ class PostsController < ApplicationController
         @post.date = params[:date] 
 
         if @post.save 
-            redirect to "/posts/#{@post.id}"
+            redirect "/posts/#{@post.id}"
         else 
-            redirect "/posts/new"
+            redirect "/posts/#{@post.id}"
         end 
     end
     

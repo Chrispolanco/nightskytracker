@@ -1,4 +1,7 @@
 
+   <%="No Selection Can Be Left Blank" if @user && @user.errors.any? %> 
+
+   
     <h1><%= @post.title %> </h1> 
     <h4>Date Seen: <%= @post.date %> </h4>
     <br> 
