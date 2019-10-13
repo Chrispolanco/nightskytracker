@@ -13,7 +13,8 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-image: url("../images/constellation-1851128_1920.jpg");
+    background-image: url('../images/constellation-1851128_1920.jpg');
+    background-repeat: no-repeat;
 
     background-color: lightblue;
     color: #333;
